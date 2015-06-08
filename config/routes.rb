@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   # /meals
   #get '/meals'=> 'meals#index'
   resources :meals
+
+  resources :movies
 end

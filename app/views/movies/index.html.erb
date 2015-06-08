@@ -1,0 +1,9 @@
+    <%= link_to('Create a new movie', new_movie_path)%>
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <%= movie.title %>
+      <%= link_to('edit this movie', edit_movie_path(movie.id))%>
+    </li>
+  <% end %>
+</ul>
