@@ -3,7 +3,7 @@ class MoviesController < ApplicationController
 
   # to display a collection of movies
   def index
-    @movies = Movie.all #this is known as a render
+    @movies = Movie.all
   end
 
   # to display a form to create a new movie
@@ -23,7 +23,6 @@ class MoviesController < ApplicationController
      render :new
      #redirect_to new_movie_path will also work but its bad since it erases  what you have filled out
      #this is bad and use the render instead of redirect when it fails
-     false
    end
   end
 
@@ -56,7 +55,7 @@ class MoviesController < ApplicationController
 
   #{movie: {title: '', released_at ''}}
   def movie_params
-    params.require(:movie).permit(:title, :released_at)
+    params.require(:movie).permit(:title, :released_on)
   end
 
   def find_movie

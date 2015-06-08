@@ -1,0 +1,12 @@
+
+  <%= link_to('Add a new song', new_music_path)%>
+<ul>
+  <% @musics.each do |song|%>
+    <li>
+      <%= link_to(song.title, music_path(song.id))%>
+      <%= song.released_at.strftime("%b %d, %Y")%>
+      <%= link_to('Edit this song',edit_music_path(song.id))%>
+      <%= link_to('Delete this song',music_path(song.id), method: :delete)%>
+    </li>
+  <% end %>
+</ul>

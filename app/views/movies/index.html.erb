@@ -1,9 +1,12 @@
+
     <%= link_to('Create a new movie', new_movie_path)%>
 <ul>
   <% @movies.each do |movie| %>
     <li>
-      <%= movie.title %>
+      <%= link_to(movie.title, movie_path(movie.id)) %>
+      <%= movie.released_on.strftime("%b %d, %Y")%>
       <%= link_to('edit this movie', edit_movie_path(movie.id))%>
+      <%= link_to('delete this movie', movie_path(movie.id), method: :delete)%>
     </li>
   <% end %>
 </ul>
