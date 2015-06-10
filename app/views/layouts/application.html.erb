@@ -7,18 +7,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
     <header>
-      <a href="<%= root_path %>">Home Page</a>
-      <a href="<%= about_path %>">About Page</a>
-      <a href="<%= contact_path %>">Contact Page</a>
-      <a href="<%= meals_path %>">Meals Page</a>
+      <ul class="nav nav-pills">
+        <li class = "<%= active_for_page('pages#home')%>">
+          <a href="<%= root_path %>">Home Page</a></li>
+        <li class = "<%= active_for_page('pages#about')%>">
+          <a href="<%= about_path %>">About Page</a></li>
+        <li class = "<%= active_for_page('pages#contact')%>">
+          <a href="<%= contact_path %>">Contact Page</a></li>
+        <li class = "<%= active_for_page('meals#index')%>">
+          <a href="<%= meals_path %>">Meals Page</a></li>
+      </ul>
     </header>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
     <section>
+      <p class = "lead">this is above the yield  </p>
     <%= yield %>
+      <p class = "lead">this is below the yield  </p>
     </section>
-<footer>
-  copyright &copy <%= Time.now.year %>
-</footer>
-
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <hr />
+        <footer>
+          copyright &copy <%= Time.now.year %>
+        </footer>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

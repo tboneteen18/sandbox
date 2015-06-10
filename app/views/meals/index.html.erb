@@ -1,8 +1,36 @@
-Meals page!
-
-I have <%= @meals.count %> meals!
-<div class="">
-  <% @meals.each do |meal|%>
-  <p><%= link_to(meal.name, meal_path(meal.id)) %></p>
-      <% end %>
+<div class="pull-right">
+  <a href="<%=  new_meal_path%>"class="btn btn-lg btn-success">
+    <span class="glyphicon glyphicon-plus"></span>
+  </a>
 </div>
+<h1 class="page-header">All the Meals</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Calories</th>
+      <th>Restaurant</th>
+      <th>Prep-time</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%  @meals.each do |meal|%>
+    <tr>
+      <td><%= link_to(meal.name, meal_path(meal.id)) %>  </td>
+      <td><%= meal.calories %> </td>
+      <td><%= meal.restaurant %> </td>
+      <td><%= meal.preptime %> </td>
+      <td>
+        <a href="<%= edit_meal_path(meal.id) %>" class="btn btn-warning">
+          <span class="glyphicon glyphicon-pencil"></span>
+          </a>
+        <a href="<%= meal_path(meal.id) %>" class="btn btn-danger">
+          <span class="glyphicon glyphicon-trash"></span>
+          </a>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

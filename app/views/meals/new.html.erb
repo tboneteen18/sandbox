@@ -1,0 +1,8 @@
+<h1>Add a new meal</h1>
+<%= form_for(@meal) do |f|%>
+    <p>Name: <%= f.text_field(:name) %></p>
+    <p>Caloris: <%= f.text_field(:calories)%></p>
+    <p>Restaurant: <%= f.text_field(:restaurant)%></p>
+    <p>Preptime: <%= f.text_field(:preptime)%></p>
+    <p><%= f.submit('Save the meal')%></p>
+<% end %>
