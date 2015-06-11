@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       redirect_to(root_path, notice: 'YAY! welcome!!!!! 🙏' )
     else
       flash[:alert] = 'boo. that did not work 💩'
@@ -15,6 +16,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(user).permit(:username, :password, :password_confirmation, :membership)
+    params.require(:user).permit(:username, :password, :password_confirmation, :membership)
   end
 end

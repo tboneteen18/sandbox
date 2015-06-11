@@ -18,8 +18,21 @@
           <a href="<%= about_path %>">About Page</a></li>
         <li class = "<%= active_for_page('pages#contact')%>">
           <a href="<%= contact_path %>">Contact Page</a></li>
+          <% if user_signed_in? %>
         <li class = "<%= active_for_page('meals#index')%>">
-          <a href="<%= meals_path %>">Meals Page</a></li>
+          <a href="<%= meals_path %>">Meals Page</a>
+          </li>
+          <li>
+            <a href="<%= logout_path %>"data-method ="delete" class = "text-danger">Logout</a>
+          </li>
+          <% else %>
+          <li class="<%= active_for_page('session#new') %>">
+          <a href="<%= login_path %>">Login</a>
+          </li>
+          <li class="<%= active_for_page('users#new') %>">
+          <a href="<%= signup_path %>">Sign up</a>
+          </li>
+          <% end %>
       </ul>
     </header>
       </div>

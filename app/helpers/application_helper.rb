@@ -6,4 +6,9 @@ module ApplicationHelper
       return "active"
     end
   end
+
+  def user_signed_in?
+    current_user.present?
+    #code
+  end
 end
